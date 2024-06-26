@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Kenya's 2024 Revolution Fallen Heroes</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href=" {% static 'assets/img/kenyanflag.png'%} " rel="icon">
+  <link href="{% static 'assets/img/kenyanflag.png'%}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Cardo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css" rel="stylesheet'%}">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css'%}" rel="stylesheet">
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <img src="{% static 'assets/img/kenyanflag.png'%}" alt="">
+        <h1 class="sitename">Fallen Heroes</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Add a Hero<br></a></li>          
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
+            <h2><span>Honor <b class="text-dark">.</b> </span>Remember<b class="text-danger">.</b><span class="underlight"></span>Celebrate <span> <b class="text-success">.</b></span></h2>
+            <p>We celebrate and honor all the Patriots who lost their lives in the line of duty fighting for a better country</p>
+            <a href="{% url "hero_create" %}" class="btn-get-started">Add a Fallen Hero<br></a>
+            <audio id="background-music" loop>
+              <source src="{% static 'audio/background_music.mp3' %}" type="audio/mpeg">
+              Your browser does not support the audio element.
+          </audio>
+          
+          <button id="music-toggle" class="btn-get-started">
+              <i class="bi bi-play-fill" id="play-icon"></i>
+              <i class="bi bi-pause-fill" id="pause-icon" style="display: none;"></i>
+          </button>
+          </div>
+          
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section">
+
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 justify-content-center">
+            {% for hero in heroes %}
+              <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="gallery-item h-100">
+                  {% if hero.photo %}
+                    <img src="{{ hero.photo.url }}" class="img-fluid" alt="{{ hero.name }}">
+                  {% else %}
+                    <img src="{% static 'assets/img/placeholder.jpg' %}" class="img-fluid" alt="Placeholder">
+                  {% endif %}
+                  <!--div class="gallery-links d-flex align-items-center justify-content-center">
+                    {% if hero.photo %}
+                      <a href="{{ hero.photo.url }}" title="{{ hero.name }}" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                    {% endif %}
+                    <a href="{% url 'hero_detail' hero.pk %}" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  </div-->
+                  <div class="hero-info mt-3">
+                    <h4>{{ hero.name }}</h4>
+                    <p><strong>Alias:</strong> {{ hero.alias }}</p>
+                    <p><strong>Born:</strong> {{ hero.dob|date:"F d, Y" }}</p>
+                    <p><strong>Death:</strong> {{ hero.killed|date:"F d, Y" }}</p>
+                    <p><strong>Family Contact:</strong> {{ hero.familynumber }}</p>
+                  </div>
+                </div>
+                
+              </div>
+            {% empty %}
+              <div class="col-12">
+                <p>No heroes found.</p>
+              </div>
+            {% endfor %}                
+
+    </section><!-- /Gallery Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">KenyanPatriot</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href=""><i class="bi bi-twitter-x"></i></a>
+        <a href=""><i class="bi bi-facebook"></i></a>
+        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="credits">        
+        Designed by <a href="https://github.com/FREDERICO23/2024FallenHeroes.git">A patriot</a>
+      </div>
+    </div>
+
+  </footer>
+ 
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="line"></div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const audio = document.getElementById('background-music');
+        
+        // Function to play audio
+        function playAudio() {
+            audio.play().catch(error => {
+                console.log("Autoplay was prevented. Please enable autoplay in your browser settings.");
+            });
+        }
+    
+        // Try to play immediately
+        playAudio();
+    
+        // Also try to play on the first user interaction with the page
+        document.body.addEventListener('click', function() {
+            playAudio();
+        }, { once: true });
+    });
+    </script>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js'%}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js'%}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js'%}"></script>
+
+</body>
+
+</html>
