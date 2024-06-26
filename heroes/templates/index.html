@@ -68,8 +68,8 @@
             <h2><span>Honor <b class="text-dark">.</b> </span>Remember<b class="text-danger">.</b><span class="underlight"></span>Celebrate <span> <b class="text-success">.</b></span></h2>
             <p>We celebrate and honor all the Patriots who lost their lives in the line of duty fighting for a better country</p>
             <a href="{% url "hero_create" %}" class="btn-get-started">Add a Fallen Hero<br></a>
-            <audio id="background-music" loop>
-              <source src="{% static 'audio/background_music.mp3' %}" type="audio/mpeg">
+            <audio id="background-music" loop autoplay>
+              <source src="{% static 'audio/Eric_Wainaina_Daima.mp3' %}" type="audio/mpeg">
               Your browser does not support the audio element.
           </audio>
           
@@ -152,23 +152,23 @@
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const audio = document.getElementById('background-music');
-        
-        // Function to play audio
-        function playAudio() {
-            audio.play().catch(error => {
-                console.log("Autoplay was prevented. Please enable autoplay in your browser settings.");
-            });
-        }
-    
-        // Try to play immediately
-        playAudio();
-    
-        // Also try to play on the first user interaction with the page
-        document.body.addEventListener('click', function() {
-            playAudio();
-        }, { once: true });
-    });
+      const audio = document.getElementById('background-music');
+      const musicToggle = document.getElementById('music-toggle');
+      const playIcon = document.getElementById('play-icon');
+      const pauseIcon = document.getElementById('pause-icon');
+  
+      musicToggle.addEventListener('click', function() {
+          if (audio.paused) {
+              audio.play();
+              playIcon.style.display = 'none';
+              pauseIcon.style.display = 'inline-block';
+          } else {
+              audio.pause();
+              playIcon.style.display = 'inline-block';
+              pauseIcon.style.display = 'none';
+          }
+      });
+  });
     </script>
 
   <!-- Vendor JS Files -->
