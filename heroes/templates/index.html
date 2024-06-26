@@ -27,6 +27,14 @@
 
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css'%}" rel="stylesheet">
+  <style>
+    #music-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+</style>
 
 </head>
 
@@ -48,10 +56,7 @@
       </nav>
 
       <div class="header-social-links">
-        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <img src="{% static 'assets/img/kenyamemorial.png'%}" alt="" style="width:70px; height: auto;">
       </div>
 
     </div>
@@ -130,12 +135,7 @@
       <div class="copyright text-center ">
         <p>© <span>Copyright</span> <strong class="px-1 sitename">KenyanPatriot</strong> <span>All Rights Reserved</span></p>
       </div>
-      <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
+      
       <div class="credits">        
         Designed by <a href="https://github.com/FREDERICO23/2024FallenHeroes.git">A patriot</a>
       </div>
