@@ -10,6 +10,7 @@ django-cloudinary-storage = "*"
 pillow = "*"
 python-dotenv = "*"
 psycopg2 = "*"
+gunicorn = "*"
 
 [dev-packages]
 
