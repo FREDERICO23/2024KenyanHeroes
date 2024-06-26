@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-_5uya1ujfx*5gb%x)vd3%pq_a70i(mnen345ysj50ie))^w4m="
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "24kenyanheroes.azurewebsites.com", "localhost"]
 
@@ -148,28 +148,10 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': getenv('CLOUDINARY_CLOUD_NAME'),
-#     'API_KEY': getenv('CLOUDINARY_API_KEY'),
-#     'API_SECRET': getenv('CLOUDINARY_API_SECRET'),
-# }
-
-DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'postgres',
-    'USER': 'postgres.fzhhxxfrucksblfugnnj',
-    'PASSWORD': 'EcPWcxWrXqFyPqRV',
-    'HOST': 'aws-0-eu-central-1.pooler.supabase.com',
-    'PORT': 5432,
-    
-  }
-}
-
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dpesoiqvk', #os.getenv('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': '239277538961433', #os.getenv('CLOUDINARY_API_KEY'),
-    'API_SECRET': 'Ak-dfKUiytDqeQx0J4XPjrJVUlo' #os.getenv('CLOUDINARY_API_SECRET'),
+    'CLOUD_NAME': getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': getenv('CLOUDINARY_API_SECRET'),
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
