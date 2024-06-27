@@ -137,9 +137,8 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # MEDIA CONFIG
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -157,4 +156,5 @@ CLOUDINARY_STORAGE = {
 
 print("PGDATABASE:", os.environ.get('PGDATABASE'))
 print("CLOUD_NAME:", os.environ.get('CLOUD_NAME'))
+
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
