@@ -12,6 +12,7 @@ python-dotenv = "*"
 gunicorn = "*"
 django-heroku = "*"
 psycopg2-binary = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
