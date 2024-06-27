@@ -13,7 +13,6 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-import django_heroku
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -165,6 +164,4 @@ print("PGDATABASE:", os.environ.get('PGDATABASE'))
 print("CLOUD_NAME:", os.environ.get('CLOUD_NAME'))
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-django_heroku.settings(locals())
 
