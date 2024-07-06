@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "85c620e56a8cbbcf6957d3e474a83bbbef63ade2cf85e4c65e8766f837e09aa1"
+            "sha256": "d6ab9cede60dc0aed28f52538baa7e19d156b87bef9369f8f7ab93176d7b67b1"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -26,11 +26,12 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:3cd43f1c6fa7dedc5899d69d3ad0398fd018ad1a17fba83ddaf78aa46c747516",
-                "sha256:ddc6c8ce995e6987e7faf5e3f1b02b302836a0e5d98ece18392cb1a36c72ad56"
+                "sha256:5a1e7645bc0ec61a09e26c36f6106dd4cf40c6db3a1fb6352b0244e7fb057c7b",
+                "sha256:c198e21b1289c2ab85ee4e67bb4b4ef3ead0892059901a8d5b622f24a1101e90"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.6'",
-            "version": "==2024.6.2"
+            "version": "==2024.7.4"
         },
         "charset-normalizer": {
             "hashes": [
@@ -166,7 +167,6 @@
             "index": "pypi",
             "version": "==0.3.0"
         },
-        
         "django-imagekit": {
             "hashes": [
                 "sha256:a8e77ed6549751026a51f961bb2cd5fda739be691496da8eecbe68ffb966c261",
@@ -281,7 +281,6 @@
             "index": "pypi",
             "version": "==10.3.0"
         },
-       
         "psycopg2-binary": {
             "hashes": [
                 "sha256:03ef7df18daf2c4c07e2695e8cfd5ee7f748a1d54d802330985a78d2a5a6dca9",
